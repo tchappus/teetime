@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/teetime/static/css/main.5df092e2.css",
+    "main.js": "/teetime/static/js/main.4265a141.js",
+    "index.html": "/teetime/index.html",
+    "main.5df092e2.css.map": "/teetime/static/css/main.5df092e2.css.map",
+    "main.4265a141.js.map": "/teetime/static/js/main.4265a141.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5df092e2.css",
+    "static/js/main.4265a141.js"
+  ]
+}
