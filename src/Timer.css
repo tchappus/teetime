@@ -1,6 +1,7 @@
 
 
 .Timer {
+  position: relative;
   text-align: center;
   font-family: 'Helvetica';
   border: 2px solid grey;
@@ -10,4 +11,10 @@
 
 input {
   width: 200px;
+}
+
+.remove-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

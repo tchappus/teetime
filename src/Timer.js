@@ -15,7 +15,8 @@ function newTimestamp() {
   return convertTime(ts);
 }
 
-export default function () {
+export default function (params) {
+  const { closeOnClick } = params;
   const [countdown, setCountdown] = useState("00 h 00 m 00 s");
   const [timestamp, setTimestamp] = useState(newTimestamp());
   const [now] = useState(convertTime(new Date()));
@@ -50,6 +51,17 @@ export default function () {
 
   return (
     <div className="Timer">
+      <button
+        className="remove-button"
+        onClick={() => {
+          if (interval.current) {
+            clearInterval(interval.current);
+          }
+          closeOnClick();
+        }}
+      >
+        x
+      </button>
       <br />
       <span>{title}</span>
       <br />
