@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/teetime/static/css/main.3ba2eef7.css",
-    "main.js": "/teetime/static/js/main.d8be27b7.js",
+    "main.css": "/teetime/static/css/main.fa57a9f6.css",
+    "main.js": "/teetime/static/js/main.7a24e198.js",
     "index.html": "/teetime/index.html",
-    "main.3ba2eef7.css.map": "/teetime/static/css/main.3ba2eef7.css.map",
-    "main.d8be27b7.js.map": "/teetime/static/js/main.d8be27b7.js.map"
+    "main.fa57a9f6.css.map": "/teetime/static/css/main.fa57a9f6.css.map",
+    "main.7a24e198.js.map": "/teetime/static/js/main.7a24e198.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ba2eef7.css",
-    "static/js/main.d8be27b7.js"
+    "static/css/main.fa57a9f6.css",
+    "static/js/main.7a24e198.js"
   ]
 }
