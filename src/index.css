@@ -5,11 +5,40 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
-  color: white;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* Dark Mode Button */
+button {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #444;
+  /* padding: 10px 20px; */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+  border-color: #666;
+}
+
+input {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+  /* padding: 8px; */
+  border-radius: 5px;
+}
+
+input::placeholder {
+  color: #aaa;
 }
