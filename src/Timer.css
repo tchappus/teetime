@@ -1,8 +1,10 @@
 
 
-.App {
+.Timer {
   text-align: center;
   font-family: 'Helvetica';
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 
 input {
