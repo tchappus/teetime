@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/teetime/static/css/main.fa57a9f6.css",
-    "main.js": "/teetime/static/js/main.7a24e198.js",
+    "main.js": "/teetime/static/js/main.b2ede21c.js",
     "index.html": "/teetime/index.html",
     "main.fa57a9f6.css.map": "/teetime/static/css/main.fa57a9f6.css.map",
-    "main.7a24e198.js.map": "/teetime/static/js/main.7a24e198.js.map"
+    "main.b2ede21c.js.map": "/teetime/static/js/main.b2ede21c.js.map"
   },
   "entrypoints": [
     "static/css/main.fa57a9f6.css",
-    "static/js/main.7a24e198.js"
+    "static/js/main.b2ede21c.js"
   ]
 }
