@@ -1,5 +1,5 @@
 import "./Timer.css";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function convertTime(ts) {
   return `${ts.toISOString().substring(0, 10)}T${ts
@@ -16,19 +16,34 @@ function newTimestamp() {
 }
 
 export default function (params) {
-  const { closeOnClick } = params;
+  const { closeOnClick, id, existingTimestamp, existingTitle } = params;
   const [countdown, setCountdown] = useState("00 h 00 m 00 s");
-  const [timestamp, setTimestamp] = useState(newTimestamp());
+  const [timestamp, setTimestamp] = useState(existingTimestamp ?? newTimestamp());
   const [now] = useState(convertTime(new Date()));
-  const [title, setTitle] = useState("Timer");
+  const [title, setTitle] = useState(existingTitle ?? "Timer");
   const timeRemaining = useRef(0);
   const interval = useRef(null);
+
+  function writeToStorage(field, value) {
+    const timers = JSON.parse(localStorage.getItem("timers")) ?? {};
+    const timerObj = timers[id] ?? { title };
+    timerObj[field] = value;
+    timers[id] = timerObj;
+    localStorage.setItem("timers", JSON.stringify(timers));
+  }
+
+  function remove() {
+    const timers = JSON.parse(localStorage.getItem("timers")) ?? {};
+    delete timers[id];
+    localStorage.setItem("timers", JSON.stringify(timers));
+  }
 
   function generateCountdown() {
     if (interval.current) {
       clearInterval(interval.current);
     }
     const chosenTime = new Date(timestamp);
+    writeToStorage('timestamp', timestamp);
     interval.current = setInterval(() => {
       timeRemaining.current = chosenTime - new Date();
       if (timeRemaining.current <= 0) {
@@ -49,6 +64,12 @@ export default function (params) {
     }, 1000);
   }
 
+  useEffect(() => {
+    if (existingTimestamp) {
+      generateCountdown();
+    }
+  }, []);
+  
   return (
     <div className="Timer">
       <button
@@ -57,6 +78,7 @@ export default function (params) {
           if (interval.current) {
             clearInterval(interval.current);
           }
+          remove();
           closeOnClick();
         }}
       >
@@ -69,6 +91,7 @@ export default function (params) {
         onClick={() => {
           const newTitle = window.prompt("new title:");
           if (newTitle) {
+            writeToStorage("title", newTitle);
             setTitle(newTitle);
           }
         }}

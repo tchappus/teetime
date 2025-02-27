@@ -13,8 +13,17 @@ function App() {
   const [timers, setTimers] = useState();
 
   useEffect(() => {
-    const timer = <Timer key={1} closeOnClick={() => removeTimer("1", timerList, setTimers)} />;
-    timerList.current = timerList.current.concat(timer);
+    const existingTimers = JSON.parse(localStorage.getItem("timers"));
+    for (const t in existingTimers) {
+      timerList.current = timerList.current.concat(
+        <Timer 
+          key={t} 
+          id={t} 
+          closeOnClick={() => removeTimer(t, timerList, setTimers)}
+          existingTimestamp={existingTimers[t]['timestamp']}
+          existingTitle={existingTimers[t]['title']}
+           />);
+    }
     setTimers(timerList.current);
   }, []);
 
@@ -23,7 +32,7 @@ function App() {
       {timers}
       <BigButton onClick={() => {
         const id = new Date().getTime();
-        const timer = <Timer key={id} closeOnClick={() => removeTimer(`${id}`, timerList, setTimers)} />
+        const timer = <Timer key={id} id={`${id}`} closeOnClick={() => removeTimer(`${id}`, timerList, setTimers)} />
         timerList.current = timerList.current.concat(timer);
         setTimers(timerList.current);
       }} />
